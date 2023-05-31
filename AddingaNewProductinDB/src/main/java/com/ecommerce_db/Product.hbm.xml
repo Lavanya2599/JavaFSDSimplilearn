@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ecommerce_db">
+    <class name="com.ecommerce_db.Product" table="ecommerce_db.product">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name" not-null="true"/>
+        <property name="price" column="price" not-null="true"/>
+        <property name="description" column="description"/>
+        <property name="createdAt" column="created_at"/>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Dashboard</title>
+  <style>
+    /* Styling for the navbar */
+    .navbar {
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Styling for the table */
+    .table-container {
+      margin: 50px auto;
+      width: 80%;
+      position: relative;
+    }
+
+    /* Styling for the "Add employee" button */
+    .add-employee-button {
+      position: absolute;
+      top: -40px;
+      right: 0;
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .navbar-buttons button {
+      margin-right: 10px;
+    }
+
+    .navbar-buttons .logout-button {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h2>Event Management App</h2>
+      <div class="navbar-buttons">
+        <button class="btn btn-danger logout-button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+  <div class="table-container">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success add-employee-button">Add Employee</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Employee ID</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.id}}</td>
+          <td>{{employee.first_name}}</td>
+          <td>{{employee.last_name}}</td>
+          <td>{{employee.email}}</td>
+          <td>
+            <button class="btn btn-info" (click)="viewDetails(employee)">View Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Employee Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="employeeForm" [formGroup]="empRef" (ngSubmit)="storeEmp()">
+            <div class="mb-3">
+              <label for="firstNameInput" class="form-label">First Name</label>
+              <input type="text" formControlName="first_name" class="form-control" id="firstNameInput" required>
+              <div class="invalid-feedback">Please enter your first name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="lastNameInput" class="form-label">Last Name</label>
+              <input type="text" formControlName="last_name" class="form-control" id="lastNameInput" required>
+              <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="emailInput" class="form-label">Email</label>
+              <input type="email" formControlName="email" class="form-control" id="emailInput" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="storeEmp()" class="btn btn-primary">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

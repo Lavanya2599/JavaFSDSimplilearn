@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Dashboard</title>
+  <style>
+    /* Styling for the navbar */
+    .navbar {
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Styling for the table */
+    .table-container {
+      margin: 50px auto;
+      width: 80%;
+      position: relative;
+    }
+
+    /* Styling for the "Add employee" button */
+    .add-employee-button {
+      position: absolute;
+      top: -40px;
+      right: 0;
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .navbar-buttons button {
+      margin-right: 10px;
+    }
+
+    .navbar-buttons .logout-button {
+      color: white;
+    }
+  
+    /* Styling for the login form */
+    body {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+  
+    .container {
+      max-width: 1500px;
+      padding: 150px;
+    }
+  
+    .text-center {
+      text-align: center;
+    }
+  
+    .form-group {
+      margin-bottom: 10px;
+    }
+  
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-right: 20px;
+    }
+  
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .btn-success {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+    }
+  
+    .btn-success:hover {
+      background-color: #218838;
+    }
+  
+    .btn-dark {
+      background-color: #343a40;
+      color: #fff;
+      border: none;
+    }
+  
+    .btn-dark:hover {
+      background-color: #23272b;
+    }
+  
+    span {
+      color: rgb(255, 0, 0);
+    }
+  
+  </style>
+  
+
+</head>
+<body>
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h2>Event Management App</h2>
+      <!--<div class="navbar-buttons">
+        <button  class="btn btn-success">Employees</button>
+        <button class="btn btn-danger logout-button">Logout</button>
+      </div>-->
+    </div>
+  </nav>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Login</h1>
+                    
+                </div>
+                <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
+                    <div class="form-group">
+                        <label for="email1">Email address</label>
+                        <input formControlName="email" type="email" class="form-control" id="email1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="password1">Password</label>
+                        <input formControlName="pass" type="password" class="form-control" id="password1">
+                    </div>
+                    <br>
+                        <input type="submit" class="btn btn-success" value="LOGIN">&nbsp;
+                        <input type="reset" class="btn btn-dark" value="RESET">
+                </form>
+                <br>
+                <span style="color: rgb(255, 0, 0);">{{msg}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

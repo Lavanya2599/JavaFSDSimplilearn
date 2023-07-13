@@ -1,0 +1,8 @@
+.container {
+  position: absolute;
+  background-image: linear-gradient(rgb(255, 184, 143), white);
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  font-family:cursive;
+}

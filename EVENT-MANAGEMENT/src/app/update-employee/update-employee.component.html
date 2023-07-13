@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Dashboard</title>
+  <style>
+    /* Styling for the navbar */
+    .navbar {
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Styling for the table */
+    .table-container {
+      margin: 50px auto;
+      width: 80%;
+      position: relative;
+    }
+
+    /* Styling for the "Add employee" button */
+    .add-employee-button {
+      position: absolute;
+      top: -40px;
+      right: 0;
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .navbar-buttons button {
+      margin-right: 10px;
+    }
+
+    .navbar-buttons .logout-button {
+      color: white;
+    }
+    .center {
+            text-align: center;
+        }
+        .table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        .table th,
+        .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+      <h2>Event Management App</h2>
+      <div class="navbar-buttons">
+        <button  class="btn btn-success" (click)="goToEmployees()">Employees</button>
+        <button class="btn btn-danger logout-button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+<div>
+    <h4 class="center">Update Details of {{employee.first_name}}</h4><br>
+    <form [formGroup]="empuRef" (ngSubmit)="updateEmpDetails()" class="center">
+        Employee ID:
+        <input type="number" [(ngModel)]=employee.id  formControlName="id" readonly>  <br><br>
+        First Name:
+        <input type="text" [(ngModel)]=employee.first_name formControlName="first_name"> <br><br>
+        Last Name:
+        <input type="text" [(ngModel)]=employee.last_name formControlName="last_name">  <br><br>
+        Email: 
+        <input type="text" [(ngModel)]=employee.email formControlName="email"> <br><br>
+        <input type="submit" class="btn btn-success" value="UPDATE EMPLOYEE" >
+    </form>
+</div>

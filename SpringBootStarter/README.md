@@ -61,4 +61,4 @@ Troubleshooting Tips
 
 Conclusion
 
-With these steps and tips, you should have successfully deployed your Spring Boot application on AWS EC2. For more advanced deployment scenarios, consider using AWS Elastic Beanstalk or AWS ECS (Elastic Container Service). Ensure that you monitor your application and set up automatic backups for your data. Happy deploying!
+With these steps and tips, you should have successfully deployed your Spring Boot application on AWS EC2. For more advanced deployment scenarios, consider using AWS Elastic Beanstalk or AWS ECS (Elastic Container Service). Ensure that you monitor your application and set up automatic backups for your data. Happy deploying!!!

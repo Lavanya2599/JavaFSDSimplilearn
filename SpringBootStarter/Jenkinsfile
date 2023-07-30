@@ -1,0 +1,38 @@
+pipeline{
+    
+    agent any 
+    tools {
+		// Install the Maven version configured as "M3" and add it to the path.
+		maven "maven1"
+		//jdk "java1"
+	}
+    
+    stages {
+        
+         stage('Checkout from GitHub') {
+            steps {
+                git branch: 'main', url: "https://github.com/awtraining1/sl.git"
+            }
+        }
+        
+         stage('Maven Build') {
+             				
+            steps {
+                dir('PHASE5/my/spring-bootdemo') {
+				bat "mvn -Dmaven.test.skip=true clean package"
+				}
+            }
+        }
+        
+        
+        stage('Docker Image Creation') {
+             				
+            steps {
+                dir('PHASE5/my/spring-bootdemo') {
+				bat "docker build -t my-spring-app --output type=docker ."
+				}
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,9 @@
+com\mAadhar\repository\LoginRepository.class
+com\mAadhar\controller\LoginController.class
+com\mAadhar\bean\Requests.class
+com\mAadhar\service\LoginService.class
+com\mAadhar\bean\Login.class
+com\mAadhar\service\RequestService.class
+com\MAadharbackendAppApplication.class
+com\mAadhar\repository\RequestRepository.class
+com\mAadhar\controller\RequestController.class

@@ -1,0 +1,16 @@
+<div>
+    <h4>User Home Page {{user}}</h4>
+    <a routerLink="storeReq" class="btn btn-primary">Apply New Aadhar Card</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a routerLink="view" class="btn btn-primary">View Aadhar Card</a>
+    <br/>
+    <hr/>
+        <router-outlet></router-outlet>
+    <hr/>
+  
+    <br/>
+    <input type="button" class="btn btn-dark" value="Apply Duplicate Card" (click)="applydup()"/>&nbsp;&nbsp;
+    <input type="button" class="btn btn-dark" value="Apply Close Adhar Card" (click)="closeadhar()"/><br>
+    <span style="color:green">{{close}}</span><br>
+    <span style="color:green">{{msg}}</span><br><br>
+    <input type="button" class="btn btn-dark" value="Logout" (click)="logout()"/>
+</div>
